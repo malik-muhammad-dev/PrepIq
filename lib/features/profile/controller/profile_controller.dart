@@ -1,13 +1,8 @@
 import 'package:get/get.dart';
+import '../../../app/routes.dart';
 
 class ProfileController extends GetxController {
-  @override
-  void onInit() {
-    super.onInit();
-  }
-
-  @override
-  void onClose() {
-    super.onClose();
+  void logout() {
+    Get.offAllNamed(AppRoutes.login);
   }
 }
