@@ -42,47 +42,37 @@ class ResultsScreen extends StatelessWidget {
             const SizedBox(height: AppDimensions.paddingXXL),
 
             // Strengths card
-            FeedbackCard(
-              title: AppStrings.strengths,
-              points: const [
-                'Strong communication skills demonstrated',
-                'Good understanding of Flutter fundamentals',
-                'Clear and structured answers',
-              ],
-              icon: Icons.check_circle_rounded,
-              color: AppColors.success,
-              delay: 800,
-            ),
+          // Strengths card
+// Strengths card
+FeedbackCard(
+  title: AppStrings.strengths,
+  points: controller.strengths,
+  icon: Icons.check_circle_rounded,
+  color: AppColors.success,
+  delay: 800,
+),
 
-            const SizedBox(height: AppDimensions.paddingM),
+const SizedBox(height: AppDimensions.paddingM),
 
-            // Improvements card
-            FeedbackCard(
-              title: AppStrings.improvements,
-              points: const [
-                'Need more depth in state management answers',
-                'Could provide more real world examples',
-                'Performance optimization needs more detail',
-              ],
-              icon: Icons.warning_rounded,
-              color: AppColors.warning,
-              delay: 1000,
-            ),
+// Improvements card
+FeedbackCard(
+  title: AppStrings.improvements,
+  points: controller.improvements,
+  icon: Icons.warning_rounded,
+  color: AppColors.warning,
+  delay: 1000,
+),
 
-            const SizedBox(height: AppDimensions.paddingM),
+const SizedBox(height: AppDimensions.paddingM),
 
-            // Suggestions card
-            FeedbackCard(
-              title: AppStrings.suggestions,
-              points: const [
-                'Practice explaining complex concepts simply',
-                'Study advanced Flutter patterns like BLoC',
-                'Work on more real world projects',
-              ],
-              icon: Icons.lightbulb_rounded,
-              color: AppColors.primary,
-              delay: 1200,
-            ),
+// Suggestions card
+FeedbackCard(
+  title: AppStrings.suggestions,
+  points: controller.suggestions,
+  icon: Icons.lightbulb_rounded,
+  color: AppColors.primary,
+  delay: 1200,
+),
 
             const SizedBox(height: AppDimensions.paddingXL),
 

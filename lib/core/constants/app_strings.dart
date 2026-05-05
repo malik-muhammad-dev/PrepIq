@@ -88,7 +88,21 @@ class AppStrings {
   static const String fieldRequired      = 'This field is required';
 
   // Job Roles
-  static const List<String> jobRoles = [
+ // Industries
+static const List<String> industries = [
+  'Technology',
+  'Finance',
+  'Healthcare',
+  'Education',
+  'E-Commerce',
+  'Startup',
+  'Government',
+  'Telecom',
+];
+
+// Roles by industry
+static const Map<String, List<String>> rolesByIndustry = {
+  'Technology': [
     'Flutter Developer',
     'Python Developer',
     'AWS Cloud Engineer',
@@ -99,17 +113,70 @@ class AppStrings {
     'DevOps Engineer',
     'UI UX Designer',
     'Product Manager',
-  ];
-
-  // Industries
-  static const List<String> industries = [
-    'Technology',
-    'Finance',
-    'Healthcare',
-    'Education',
-    'E-Commerce',
-    'Startup',
-    'Government',
-    'Telecom',
-  ];
+  ],
+  'Finance': [
+    'Financial Analyst',
+    'Risk Manager',
+    'Investment Banker',
+    'Accountant',
+    'Compliance Officer',
+    'Data Analyst',
+    'Fintech Developer',
+    'Business Analyst',
+  ],
+  'Healthcare': [
+    'Healthcare Administrator',
+    'Medical Data Analyst',
+    'Health IT Specialist',
+    'Clinical Project Manager',
+    'Medical Software Developer',
+    'Healthcare Consultant',
+  ],
+  'Education': [
+    'Teacher',
+    'Curriculum Developer',
+    'Education Administrator',
+    'E-Learning Developer',
+    'Academic Counselor',
+    'Training Specialist',
+  ],
+  'E-Commerce': [
+    'E-Commerce Manager',
+    'Digital Marketing Specialist',
+    'Product Manager',
+    'Supply Chain Manager',
+    'UX Designer',
+    'Full Stack Developer',
+    'SEO Specialist',
+    'Business Analyst',
+  ],
+  'Startup': [
+    'Full Stack Developer',
+    'Product Manager',
+    'Growth Hacker',
+    'UI UX Designer',
+    'Business Development',
+    'Marketing Manager',
+    'Flutter Developer',
+    'Data Analyst',
+  ],
+  'Government': [
+    'Policy Analyst',
+    'Public Administrator',
+    'IT Officer',
+    'Project Manager',
+    'Data Analyst',
+    'Compliance Officer',
+    'Communications Officer',
+  ],
+  'Telecom': [
+    'Network Engineer',
+    'Telecom Analyst',
+    'RF Engineer',
+    'Software Developer',
+    'Project Manager',
+    'Business Analyst',
+    'Customer Experience Manager',
+  ],
+};
 }

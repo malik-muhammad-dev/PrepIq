@@ -35,28 +35,27 @@ class SelectRoleCard extends StatelessWidget {
           const SizedBox(height: AppDimensions.paddingM),
 
           // Industry dropdown
-          Obx(() => _buildDropdown(
-            hint: AppStrings.selectIndustry,
-            value: controller.selectedIndustry.value.isEmpty
-                ? null
-                : controller.selectedIndustry.value,
-            items: AppStrings.industries,
-            onChanged: (val) =>
-                controller.selectedIndustry.value = val ?? '',
-          )),
+         // Industry dropdown
+Obx(() => _buildDropdown(
+  hint: AppStrings.selectIndustry,
+  value: controller.selectedIndustry.value.isEmpty
+      ? null
+      : controller.selectedIndustry.value,
+  items: AppStrings.industries,
+  onChanged: controller.onIndustryChanged,
+)),
 
-          const SizedBox(height: AppDimensions.paddingS),
+const SizedBox(height: AppDimensions.paddingS),
 
-          // Role dropdown
-          Obx(() => _buildDropdown(
-            hint: AppStrings.selectRole,
-            value: controller.selectedRole.value.isEmpty
-                ? null
-                : controller.selectedRole.value,
-            items: AppStrings.jobRoles,
-            onChanged: (val) =>
-                controller.selectedRole.value = val ?? '',
-          )),
+// Role dropdown — changes based on industry
+Obx(() => _buildDropdown(
+  hint: AppStrings.selectRole,
+  value: controller.selectedRole.value.isEmpty
+      ? null
+      : controller.selectedRole.value,
+  items: controller.rolesForSelectedIndustry,
+  onChanged: (val) => controller.selectedRole.value = val ?? '',
+)),
         ],
       ),
     )

@@ -36,6 +36,7 @@ class QuestionCard extends StatelessWidget {
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisSize: MainAxisSize.min,
         children: [
           // AI label
           Row(
@@ -66,12 +67,10 @@ class QuestionCard extends StatelessWidget {
           const SizedBox(height: AppDimensions.paddingL),
 
           // Question text
-          Flexible(
-            child: Text(
-              question,
-              style: AppTextStyles.titleLarge.copyWith(
-                height: 1.6,
-              ),
+          Text(
+            question,
+            style: AppTextStyles.titleLarge.copyWith(
+              height: 1.6,
             ),
           ),
         ],

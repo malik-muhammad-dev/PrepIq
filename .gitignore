@@ -38,6 +38,8 @@ app.*.symbols
 
 # Obfuscation related
 app.*.map.json
+# API Keys
+lib/core/constants/app_contants.dart
 
 # Android Studio will place build artifacts here
 /android/app/debug

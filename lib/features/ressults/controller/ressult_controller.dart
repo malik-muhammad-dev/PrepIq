@@ -1,9 +1,30 @@
 import 'package:get/get.dart';
-import 'package:prep_iq/core/constants/app_colors.dart';
 import '../../../app/routes.dart';
+import '../../../core/constants/app_colors.dart';
 
 class ResultsController extends GetxController {
-  final score = 78.obs;
+  final score = 0.obs;
+  final strengths = <String>[].obs;
+  final improvements = <String>[].obs;
+  final suggestions = <String>[].obs;
+
+  @override
+  void onInit() {
+    super.onInit();
+    final args = Get.arguments as Map<String, dynamic>?;
+    if (args != null) {
+      score.value = args['score'] as int? ?? 70;
+      strengths.assignAll(
+        List<String>.from(args['strengths'] ?? []),
+      );
+      improvements.assignAll(
+        List<String>.from(args['improvements'] ?? []),
+      );
+      suggestions.assignAll(
+        List<String>.from(args['suggestions'] ?? []),
+      );
+    }
+  }
 
   void tryAgain() {
     Get.offNamed(AppRoutes.home);
