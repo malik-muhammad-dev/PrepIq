@@ -35,7 +35,7 @@ class HomeHeader extends StatelessWidget {
         Container(
           width: AppDimensions.avatarM,
           height: AppDimensions.avatarM,
-          decoration: const BoxDecoration(
+          decoration: BoxDecoration(
             shape: BoxShape.circle,
             gradient: AppColors.primaryGradient,
           ),

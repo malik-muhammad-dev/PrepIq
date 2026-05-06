@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../../app/routes.dart';
+import '../../../core/constants/app_colors.dart';
+import '../repository/auth_repository.dart';
 
 class AuthController extends GetxController {
+  final AuthRepository _authRepository = AuthRepository();
+
   final loginFormKey = GlobalKey<FormState>();
   final registerFormKey = GlobalKey<FormState>();
 
@@ -17,23 +21,50 @@ class AuthController extends GetxController {
     isPasswordVisible.value = !isPasswordVisible.value;
   }
 
-  void login() {
+  Future<void> login() async {
     if (loginFormKey.currentState!.validate()) {
       isLoading.value = true;
-      Future.delayed(const Duration(seconds: 2), () {
+      try {
+        await _authRepository.login(
+          email: emailController.text.trim(),
+          password: passwordController.text.trim(),
+        );
+        Get.offAllNamed(AppRoutes.home);
+      } catch (e) {
+        Get.snackbar(
+          'Login Failed',
+          e.toString(),
+          snackPosition: SnackPosition.BOTTOM,
+          backgroundColor: AppColors.error,
+          colorText: AppColors.textPrimary,
+        );
+      } finally {
         isLoading.value = false;
-        Get.offNamed(AppRoutes.home);
-      });
+      }
     }
   }
 
-  void register() {
+  Future<void> register() async {
     if (registerFormKey.currentState!.validate()) {
       isLoading.value = true;
-      Future.delayed(const Duration(seconds: 2), () {
+      try {
+        await _authRepository.register(
+          email: emailController.text.trim(),
+          password: passwordController.text.trim(),
+          name: nameController.text.trim(),
+        );
+        Get.offAllNamed(AppRoutes.home);
+      } catch (e) {
+        Get.snackbar(
+          'Registration Failed',
+          e.toString(),
+          snackPosition: SnackPosition.BOTTOM,
+          backgroundColor: AppColors.error,
+          colorText: AppColors.textPrimary,
+        );
+      } finally {
         isLoading.value = false;
-        Get.offNamed(AppRoutes.home);
-      });
+      }
     }
   }
 

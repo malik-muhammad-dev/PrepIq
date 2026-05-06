@@ -13,7 +13,7 @@ class AppTheme {
       scaffoldBackgroundColor: AppColors.background,
 
       // Color Scheme
-      colorScheme: const ColorScheme.dark(
+      colorScheme: ColorScheme.dark(
         primary: AppColors.primary,
         secondary: AppColors.gradientStart,
         background: AppColors.background,
@@ -93,7 +93,7 @@ class AppTheme {
         ),
         focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(AppDimensions.radiusL),
-          borderSide: const BorderSide(
+          borderSide: BorderSide(
             color: AppColors.primary,
             width: 1.5,
           ),

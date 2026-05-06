@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:get/get.dart';
+
 import '../../../core/constants/app_colors.dart';
 import '../../../core/constants/app_text_styles.dart';
 import '../../../core/constants/app_dimenstions.dart';
@@ -45,7 +46,7 @@ class ProfileScreen extends StatelessWidget {
             Container(
               width: 100,
               height: 100,
-              decoration: const BoxDecoration(
+              decoration: BoxDecoration(
                 shape: BoxShape.circle,
                 gradient: AppColors.primaryGradient,
               ),
@@ -67,23 +68,19 @@ class ProfileScreen extends StatelessWidget {
             const SizedBox(height: AppDimensions.paddingM),
 
             // Name
-            Text(
-              'Malik Muhammad',
-              style: AppTextStyles.displaySmall,
-            )
-            .animate()
-            .fadeIn(delay: 200.ms, duration: 500.ms),
+         // Name
+Obx(() => Text(
+  controller.userName.value,
+  style: AppTextStyles.displaySmall,
+)),
 
-            const SizedBox(height: 4),
+const SizedBox(height: 4),
 
-            // Email
-            Text(
-              'malik@gmail.com',
-              style: AppTextStyles.bodyMedium,
-            )
-            .animate()
-            .fadeIn(delay: 300.ms, duration: 500.ms),
-
+// Email
+Obx(() => Text(
+  controller.userEmail.value,
+  style: AppTextStyles.bodyMedium,
+)),
             const SizedBox(height: AppDimensions.paddingXL),
 
             // Stats card
@@ -93,6 +90,7 @@ class ProfileScreen extends StatelessWidget {
             .slideY(begin: 0.2, end: 0, delay: 400.ms),
 
             const SizedBox(height: AppDimensions.paddingXL),
+
 
             // Settings options
             _buildOption(

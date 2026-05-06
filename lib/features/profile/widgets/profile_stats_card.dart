@@ -1,29 +1,42 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import '../../../core/constants/app_colors.dart';
 import '../../../core/constants/app_text_styles.dart';
 import '../../../core/constants/app_dimenstions.dart';
+import '../controller/profile_controller.dart';
 
 class ProfileStatsCard extends StatelessWidget {
   const ProfileStatsCard({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final controller = Get.find<ProfileController>();
+
     return Container(
       padding: const EdgeInsets.all(AppDimensions.paddingL),
       decoration: BoxDecoration(
         color: AppColors.cardBackground,
         borderRadius: BorderRadius.circular(AppDimensions.cardRadius),
       ),
-      child: Row(
+      child: Obx(() => Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
-          _buildStat('12', 'Interviews'),
+          _buildStat(
+            controller.totalInterviews.value.toString(),
+            'Interviews',
+          ),
           _buildDivider(),
-          _buildStat('74%', 'Avg Score'),
+          _buildStat(
+            '${controller.averageScore.value}%',
+            'Avg Score',
+          ),
           _buildDivider(),
-          _buildStat('89%', 'Best Score'),
+          _buildStat(
+            '${controller.bestScore.value}%',
+            'Best Score',
+          ),
         ],
-      ),
+      )),
     );
   }
 

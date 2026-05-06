@@ -9,7 +9,7 @@ class AiService {
     int count = 5,
   }) async {
     try {
-      print('🔥 Calling Groq for role: $role industry: $industry');
+    
 
       final response = await http.post(
         Uri.parse(AppConstants.groqApiUrl),
@@ -45,12 +45,12 @@ Generate the questions now:
         }),
       );
 
-      print('🔥 Groq status: ${response.statusCode}');
+    
 
       if (response.statusCode == 200) {
         final data = jsonDecode(response.body);
         final text = data['choices'][0]['message']['content'] as String;
-        print('🔥 Groq response: $text');
+   
 
         final questions = text
             .split('\n')
@@ -58,14 +58,13 @@ Generate the questions now:
             .take(count)
             .toList();
 
-        print('🔥 Questions count: ${questions.length}');
         return questions;
       } else {
-        print('🔥 Groq ERROR: ${response.body}');
+   
         return _fallbackQuestions(role);
       }
     } catch (e) {
-      print('🔥 Groq EXCEPTION: $e');
+
       return _fallbackQuestions(role);
     }
   }
@@ -136,14 +135,14 @@ Only respond in the format above nothing else.
       if (response.statusCode == 200) {
         final data = jsonDecode(response.body);
         final text = data['choices'][0]['message']['content'] as String;
-        print('🔥 Analysis response: $text');
+      
         return _parseAnalysis(text);
       } else {
-        print('🔥 Analysis ERROR: ${response.body}');
+      
         return _fallbackAnalysis();
       }
     } catch (e) {
-      print('🔥 Analysis EXCEPTION: $e');
+   
       return _fallbackAnalysis();
     }
   }

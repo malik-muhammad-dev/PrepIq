@@ -53,9 +53,9 @@ class InterviewProgress extends StatelessWidget {
           child: LinearProgressIndicator(
             value: currentQuestion / totalQuestions,
             backgroundColor: AppColors.cardBackground,
-            valueColor: const AlwaysStoppedAnimation<Color>(
-              AppColors.primary,
-            ),
+          valueColor: AlwaysStoppedAnimation<Color>(
+  AppColors.primary,
+),
             minHeight: 6,
           ),
         ),

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:prep_iq/core/themes/app_theme.dart';
-
 import 'routes.dart';
 
 class App extends StatelessWidget {

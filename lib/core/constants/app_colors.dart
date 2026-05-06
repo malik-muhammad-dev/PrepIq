@@ -24,7 +24,7 @@ class AppColors {
   static const Color warning        = Color(0xFFFFAA00);
   static const Color error          = Color(0xFFFF4D6A);
 
-  // Gradient shortcut
+  // Gradients
   static const LinearGradient primaryGradient = LinearGradient(
     colors: [gradientStart, gradientEnd],
     begin: Alignment.centerLeft,
